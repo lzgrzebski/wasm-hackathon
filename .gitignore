@@ -1,2 +1,6 @@
 processVideo.js
 processVideo.wasm
+/OpenCV
+/OpenCV/**
+install.sh
+opencv_js.js
