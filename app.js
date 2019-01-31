@@ -10,6 +10,13 @@ let faceCascade;
 
 let videoMem;
 
+let glassesData;
+const glasses = new Image();
+glasses.src = 'glasses.png';
+glasses.onload = () => {
+    glassesData = glasses
+};
+
 const getUserMedia = async () => {
     const constraints = {
         audio: false,
@@ -69,6 +76,9 @@ const processVideo = () => {
         processingCanvasContext.lineWidth = 3;
         processingCanvasContext.strokeStyle = 'yellow';
         // console.log(f.x*xRatio, f.y*yRatio, f.width*xRatio, f.height*yRatio);
+        if(glassesData) {
+            processingCanvasContext.drawImage(glassesData, f.x*xRatio, f.y*yRatio + 20);
+        }
         processingCanvasContext.strokeRect(f.x*xRatio, f.y*yRatio, f.width*xRatio, f.height*yRatio);
     });
 
