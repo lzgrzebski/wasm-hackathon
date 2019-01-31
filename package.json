@@ -1,0 +1,12 @@
+{
+  "name": "wasm-hackathon",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:lzgrzebski/wasm-hackathon.git",
+  "author": "lzgrzebski <lukasz@pexip.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "emcc --emrun -o processVideo.js processVideo.cpp -std=c++14 -pedantic -Wextra -Wall -DNDEBUG -O3 -s WASM=1 -s EXPORTED_FUNCTIONS=\"['_process_video', '_malloc', '_free']\"",
+    "serve": "emrun --no_browser --port 8080 ."
+  }
+}
